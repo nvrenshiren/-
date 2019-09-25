@@ -1,0 +1,7 @@
+<template name="imgloader">
+  <view hidden class="thumb">
+    <block wx:for="{{imgloader}}" wx:key="{{index}}">
+      <image src="{{!item.loaded?item.src:''}}" data-id="{{index}}" bindload="ImgEvent" data-name="downthumb"></image>
+    </block>
+  </view>
+</template>

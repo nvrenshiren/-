@@ -1,0 +1,24 @@
+<import src="../../plus/wxParse/wxParse.wxml" />
+<template name="show_video">
+  <view class="content-padded">
+    <view class="title">
+      {{data.title}}
+    </view>
+    <view class="other">
+      <view class="copyfrom">
+        {{data.copyfrom}}
+      </view>
+      <view class="fa fa-calendar-plus-o">
+        {{data.inputtime}}
+      </view> 阅读:{{data.view}}
+    </view>
+    <block wx:if="{{data.video}}">
+      <view class="video">
+        <video id="myVideo" src="{{data.video}}" controls="1" poster="{{data.pic}}"></video>
+      </view>
+    </block>
+    <view class="content-main" style="font-size: {{config.fontsize}}rpx;">
+      <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+    </view>
+  </view>
+</template>

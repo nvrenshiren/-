@@ -1,0 +1,6 @@
+<import src="../../utils/plus/subnav/subnav.wxml" />
+<import src="../../utils/modules/list/list.wxml" />
+<template is="subnav" data="{{subnav:subnav,category:category}}" />
+<view class="content-warp">
+    <template is="list" data="{{list:list,loading:loading,imgloader:imgloader}}" />
+</view>

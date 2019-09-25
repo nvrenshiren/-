@@ -1,0 +1,73 @@
+//out:false
+.loader {
+  position: relative;
+  margin: 10rpx auto;
+  width: 182px;
+  height: 80rpx;
+  color: #fff;
+  background: linear-gradient(180deg, #ccc 0, #ddd 100%); // box-shadow: inset 0 6rpx 20rpx #999;
+  text-shadow: 2rpx 2rpx 2rpx #000;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 30rpx;
+  font-family: "Roboto Condensed", sans-serif;
+  view {
+    height: 80rpx;
+    line-height: 100rpx;
+    width: 100%;
+  }
+}
+
+.covers {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.covers view {
+  background: #fff;
+  animation: up 1.5s infinite;
+}
+
+@keyframes up {
+  0% {
+    margin-bottom: 0;
+  }
+  16% {
+    margin-bottom: 100%;
+    height: 20rpx;
+  }
+  50% {
+    margin-bottom: 0;
+  }
+  100% {
+    margin-bottom: 0;
+  }
+}
+
+.covers view:nth-child(2) {
+  animation-delay: .142857s;
+}
+
+.covers view:nth-child(3) {
+  animation-delay: .285714s;
+}
+
+.covers view:nth-child(4) {
+  animation-delay: .428571s;
+}
+
+.covers view:nth-child(5) {
+  animation-delay: .571428s;
+}
+
+.covers view:nth-child(6) {
+  animation-delay: .714285s;
+}
+
+.covers view:nth-child(7) {
+  animation-delay: .857142s;
+}

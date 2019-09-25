@@ -1,0 +1,20 @@
+<template name="diy">
+  <view class="loader">
+    <view>L</view>
+    <view>O</view>
+    <view>A</view>
+    <view>D</view>
+    <view>I</view>
+    <view>N</view>
+    <view>G</view>
+    <view class="covers">
+      <view></view>
+      <view></view>
+      <view></view>
+      <view></view>
+      <view></view>
+      <view></view>
+      <view></view>
+    </view>
+  </view>
+</template>

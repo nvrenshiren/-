@@ -1,0 +1,45 @@
+<import src="./show.wxml" />
+<import src="./show_zw.wxml" />
+<import src="./show_pics.wxml" />
+<import src="./show_fabu.wxml" />
+<import src="./show_video.wxml" />
+<import src="./show_special.wxml" />
+<import src="../../plus/imgloader/imgloader.wxml" />
+<import src="../../plus/navbar/navbar.wxml" />
+<import src="../../plus/combox/combox.wxml" />
+<import src="../../plus/config/config.wxml" />
+<template name="content">
+  <view class="{{template}} {{!!data?'show':'hidden'}}">
+    <block wx:if="{{template=='show'}}">
+      <template is="show" data="{{data:data,content:content,imgloader:imgloader,config:config}}"></template>
+      <template is="combox" data="{{combox:combox}}"></template>
+      <template is="config" data="{{config:config}}"></template>
+    </block>
+    <block wx:if="{{template=='show_zw'}}">
+      <template is="show_zw" data="{{data:data,content:content,imgloader:imgloader,config:config}}"></template>
+      <template is="combox" data="{{combox:combox}}"></template>
+      <template is="config" data="{{config:config}}"></template>
+    </block>
+    <block wx:if="{{template=='show_pics'}}">
+      <template is="show_pics" data="{{data:data,content:content,imgloader:imgloader}}"></template>
+      <template is="combox" data="{{combox:combox}}"></template>
+    </block>
+    <block wx:if="{{template=='show_fabu'}}">
+      <template is="show_fabu" data="{{data:data,content:content,imgloader:imgloader,config:config}}"></template>
+      <template is="combox" data="{{combox:combox}}"></template>
+      <template is="config" data="{{config:config}}"></template>
+    </block>
+    <block wx:if="{{template=='show_video'}}">
+      <template is="show_video" data="{{data:data,content:content,imgloader:imgloader,config:config}}"></template>
+      <template is="combox" data="{{combox:combox}}"></template>
+      <template is="config" data="{{config:config}}"></template>
+    </block>
+    <block wx:if="{{template=='show_special'}}">
+      <template is="show_special" data="{{data:data,content:content,imgloader:imgloader}}"></template>
+    </block>
+    <block wx:if="{{template!='show_special'}}">
+      <template is="navbar" data="{{navbar:navbar,combox:combox}}"></template>
+    </block>
+  </view>
+  <template is="imgloader" data="{{imgloader:imgloader}}" />
+</template>

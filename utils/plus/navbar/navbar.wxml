@@ -1,0 +1,43 @@
+<template name="navbar">
+  <view class="navbar-clear"></view>
+  <view class="navbar">
+    <view class="nav-box">
+      <!-- 评论按钮 全要-->
+      <block wx:if="{{navbar.combtn.show}}">
+        <view class="combtn" catchtap="NavEvent" data-name="combox">
+          <view class="fa fa-edit"> 写评论</view>
+        </view>
+      </block>
+      <!-- 跳转评论 直播不要 -->
+      <block wx:if="{{navbar.comlink.show}}">
+        <view class="comlink vbtn" catchtap="NavEvent" data-name="viewcom" data-local="comment">
+          <view class="fa fa-comments-o">
+            <view class="comnum">{{combox.comnum}}</view>
+          </view>
+        </view>
+      </block>
+      <!-- 收藏按钮 全要-->
+      <block wx:if="{{navbar.favbtn.show}}">
+        <view class="favbtn vbtn" catchtap="NavEvent" data-name="confav" data-status="{{navbar.favbtn.status}}">
+          <view class="fa {{navbar.favbtn.status?'fa-heart':'fa-heart-o'}}"></view>
+        </view>
+      </block>
+      <!-- 下载图片按钮 只图集要-->
+      <block wx:if="{{navbar.picbtn.show}}">
+        <view class="picbtn vbtn" catchtap="NavEvent" data-name="downpic">
+          <view class="fa fa-download"></view>
+        </view>
+      </block>
+      <!-- 更多配置按钮 图集和直播不要-->
+      <block wx:if="{{navbar.config.show}}">
+        <view class="config vbtn" catchtap="NavEvent" data-name="config">
+          <view class="fa fa-text-height"></view>
+        </view>
+      </block>
+      <!-- 弹幕按钮 只直播要-->
+      <block wx:if="{{navbar.tmbtn.show}}">
+        <view class="tmbtn vbtn" catchtap="NavEvent" data-name="tmbox"><view class="fa fa-bullhorn"></view></view>
+      </block>
+    </view>
+  </view>
+</template>

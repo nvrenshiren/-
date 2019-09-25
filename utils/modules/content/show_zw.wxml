@@ -1,0 +1,20 @@
+<import src="../../plus/wxParse/wxParse.wxml" />
+<template name="show_zw">
+  <view class="content-padded">
+    <view class="title">
+      {{data.title}}
+    </view>
+    <view class="other">
+      <view class="copyfrom">
+        {{data.copyfrom}}
+      </view>
+      <view class="fa fa-calendar-plus-o">
+        {{data.inputtime}}
+      </view>
+      阅读:{{data.view}}
+    </view>
+    <view class="content-main" style="font-size: {{config.fontsize}}rpx;">
+      <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+    </view>
+  </view>
+</template>

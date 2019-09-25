@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/content/content",
+    "pages/fabu/fabu",
+    "pages/my/my",
+    "pages/boss/boss",
+    "pages/comment/comment",
+    "pages/live/live",
+    "pages/localdata/localdata",
+    "pages/link/link"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#d20019",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "韶关见闻",
+    "backgroundColor": "#ffffff",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": false,
+    "onReachBottomDistance": 0
+  },
+  "tabBar": {
+    "position": "bottom",
+    "color": "#cdcdcd",
+    "selectedColor": "#d20019",
+    "backgroundColor": "#f7f7f7",
+    "borderStyle": "black",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath":"images/home.png",
+      "selectedIconPath":"images/home_on.png"
+    }, {
+      "pagePath": "pages/fabu/fabu",
+      "text": "广场",
+      "iconPath":"images/com.png",
+      "selectedIconPath":"images/com_on.png"
+    }, {
+      "pagePath": "pages/my/my",
+      "text": "我的",
+      "iconPath":"images/my.png",
+      "selectedIconPath":"images/my_on.png"
+    }]
+  },
+  "networkTimeout": {
+    "request": 60000,
+    "connectSocket": 60000,
+    "downloadFile": 60000,
+    "uploadFile": 60000
+  },
+  "debug": true
+}

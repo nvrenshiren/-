@@ -1,0 +1,26 @@
+<import src="../../plus/wxParse/wxParse.wxml" />
+<import src="../../plus/combox/combox.wxml" />
+<import src="../../plus/loading/loading.wxml" />
+<import src="../list/list_comment.wxml" />
+<template name="comment">
+  <view class="list_comment">
+    <!-- 列表 -->
+    <view class="list_box" wx:if="{{lists.length > 0}}">
+      <block wx:for="{{lists}}" wx:key="id" wx:for-index="idx">
+        <view class="list-item">
+          <template is="list_comment" data="{{item:item,idx:idx,content:content}}" />
+        </view>
+      </block>
+    </view>
+  </view>
+  <template is="loading" data="{{loading:loading}}" />
+  <view class="navbar-clear"></view>
+  <view class="navbar">
+    <view class="nav-box">
+      <view class="combtn full" catchtap="ComEvent" data-name="combox">
+        <view class="fa fa-edit"> 写评论</view>
+      </view>
+    </view>
+  </view>
+  <template is="combox" data="{{combox:combox}}" />
+</template>

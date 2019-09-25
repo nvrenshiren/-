@@ -1,0 +1,63 @@
+@import url("../../variables.less");
+@import url("../../utils/plus/combox/combox.less");
+.list_comment {
+  .list-item {
+    overflow: hidden;
+    .face {
+      width: 90rpx;
+      height: 90rpx;
+      border-radius: 100%;
+    }
+    .comwarp {
+      width: 580rpx;
+    }
+    .comhead {
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+      line-height: 44rpx;
+      .info {
+        font-size: 24rpx;
+        color: #ccc;
+        .nickname {
+          font-size: 32rpx;
+          color: #999;
+        }
+      }
+      .plus {
+        font-size: 40rpx;
+        color: @red-color;
+        .fa {
+          padding: 16rpx 20rpx;
+          margin: 0 10rpx;
+          .num {
+            display: inline-block;
+            font-size: 28rpx;
+          }
+        }
+      }
+    }
+    .comcontent {
+      margin-top: 10rpx;
+      font-size: 28rpx;
+      .wxParse-div {
+        padding: 6rpx;
+        border: 2rpx solid #ddd;
+        background: #ffe;
+        .blue {
+          .wxParse-inline {
+            padding-top: 0;
+            color: #1e50a2;
+            font-size: 24rpx;
+          }
+        }
+      }
+      .wxParse-inline {
+        padding-top:10rpx; 
+        font-size: 28rpx;
+        line-height: 1.5;
+        color: #2b2b2b
+      }
+    }
+  }
+}

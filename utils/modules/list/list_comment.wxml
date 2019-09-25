@@ -1,0 +1,21 @@
+<import src="../../plus/wxParse/wxParse.wxml" />
+<template name="list_comment">
+  <image class="face fl" src="{{item.face}}"></image>
+  <view class="comwarp fr">
+    <view class="comhead">
+      <view class="info">
+        <view class="nickname">{{item.nickname}}</view>
+        <view class="time">{{item.creat_at}}</view>
+      </view>
+      <view class="plus">
+        <view class="fa fa-commenting-o" data-id="{{item.id}}" catchtap="ComEvent" data-name="recom"></view>
+        <view class="fa fa-thumbs-o-up" data-id="{{item.id}}" catchtap="ComEvent" data-name="ding" data-index="{{idx}}">
+          <view class="num">{{item.support}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="comcontent">
+      <template is="wxParse" data="{{wxParseData:content[idx].nodes}}" />
+    </view>
+  </view>
+</template>

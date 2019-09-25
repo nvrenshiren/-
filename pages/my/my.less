@@ -1,0 +1,153 @@
+//out:my.wxss
+@import url('../../variables.less');
+.content-warp {
+  padding-top: 400rpx;
+}
+
+.my {
+  background: @red-color;
+  height: 400rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .userbox {
+    text-align: center;
+    height: 400rpx;
+    color: #fff;
+    line-height: 2;
+    .user-image{
+      width: 200rpx;
+      height: 200rpx;
+      border-radius: 100%;
+    }
+  }
+}
+
+.list_box {
+  background: #efeff4;
+  padding-top: 20rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  color: #333;
+  .fa {
+    width: 60rpx;
+    text-align: center;
+    font-size: 40rpx;
+  }
+  .fr {
+    color: #bbb;
+  }
+}
+
+.fa-heart {
+  color: #fb0335;
+}
+
+.fa-calendar {
+  color: #0eb7d6;
+}
+
+.fa-paper-plane-o {
+  color: #fbb40a;
+}
+
+.fa-handshake-o {
+  color: #11b66a;
+}
+
+.fa-map-marker {
+  color: #0eb7d6;
+}
+
+.fa-copyright {
+  color: #f15906;
+}
+
+.fa-gavel {
+  color: #09e2b7;
+}
+
+.fa-recycle {
+  color: #fb0335;
+}
+
+.cover {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.cache {
+  font-size: 24rpx;
+  view {
+    display: inline-block;
+    &.current {
+      color: #f15906;
+    }
+    &.limit {
+      color: #11b66a;
+    }
+  }
+}
+
+.loginbox {
+  width: 80%;
+  .username,
+  .password {
+    position: relative;
+    height: 80rpx;
+    padding-left: 60rpx;
+    background: #fff;
+    margin-bottom: 20rpx;
+    color: #aaa;
+    view.fa {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 36rpx;
+      line-height: 80rpx;
+      height: 80rpx;
+      width: 60rpx;
+      text-align: center;
+    }
+  }
+  input {
+    width: 100%;
+    height: 80rpx;
+    font-size: 30rpx;
+    line-height: 60rpx;
+    padding: 10rpx;
+  }
+  .btngroup {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20rpx;
+    view {
+      width: 40%;
+      height: 80rpx;
+      line-height: 80rpx;
+      text-align: center;
+      font-size: 30rpx;
+      color: #fff;
+      &.logbtn {
+        background: #f15906;
+      }
+      &.wxbtn {
+        background: #11b66a;
+      }
+      &:before {
+        font-size: 40rpx;
+        margin-right: 10rpx;
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+<import src="../../utils/modules/comment/comment.wxml" />
+<view class="content-warp">
+  <template is="comment" data="{{lists:lists,content:content,loading:loading,combox:combox}}" />
+</view>

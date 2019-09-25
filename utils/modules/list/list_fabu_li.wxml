@@ -1,0 +1,19 @@
+<template name="list_fabu_li">
+  <view class="list-warp img_li">
+    <view class="item-title">{{item.title}}</view>
+    <view class="img-flex">
+      <block wx:for="{{item.lpic}}" wx:for-item="imgli" wx:for-index="idx" wx:key="*this">
+        <image data-from="listdata" data-src="{{imgli}}" src="{{imgloader['thumb_'+item.id+'_'+idx]['loaded']?imgloader['thumb_'+item.id+'_'+idx]['src']:'/images/loading.gif'}}"
+          class="item-image {{imgloader['thumb_'+item.id+'_'+idx]['loaded']?'anima':''}}" bindload="ListEvent" data-name="downimg" id="thumb_{{item.id}}_{{idx}}" lazy-load/>
+      </block>
+    </view>
+    <view class="other">
+      <view class="item-view fl">
+        <image class="face" src="{{item.face}}"></image> {{item.nickname}}
+      </view>
+      <view class="item-view fr">
+        <view class="fa fa-clock-o"> {{item.inputtime}}</view>
+      </view>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,9 @@
+<template name="tmbox">
+  <view class="tmbox shadow" hidden="{{!tmbox.show}}" catchtap="TmBoxEvent" data-name="tmbox">
+    <view class="tmwarp" catchtap="TmBoxEvent">
+      <input class="tminput" cursor-spacing="15" placeholder="请输入弹幕内容" bindinput="TmBoxEvent" data-name="getinput" cursor="1" focus="{{!!tmbox.show}}" value="{{tmbox.input}}" />
+      <view class="close btn" catchtap="TmBoxEvent" data-name="tmbox">取消</view>
+      <view class="post btn" catchtap="TmBoxEvent" data-name="posttm">发送</view>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,146 @@
+<import src="../../plus/loading/loading.wxml" />
+<import src="../../plus/loading/diy.wxml" />
+<import src="../../plus/imgloader/imgloader.wxml" />
+<import src="./list_slide.wxml" />
+<import src="./list_img_small.wxml" />
+<import src="./list_img_li.wxml" />
+<import src="./list_img_full.wxml" />
+<import src="./list_img_video.wxml" />
+<import src="./list_live.wxml" />
+<import src="./list_video.wxml" />
+<import src="./list_fabu.wxml" />
+<import src="./list_fabu_li.wxml" />
+
+<template name="list">
+    <block wx:if="{{list.catobj.list_template=='list'}}">
+        <view class="list_main fixload">
+            <template is="diy" />
+            <!-- 焦点图 -->
+            <view class="list_slide" wx:if="{{list.data.slidedata.length > 0}}">
+                <swiper indicator-dots="{{!!1}}" circular="{{!!0}}" current="{{list.slideindex}}" indicator-color="#aaaaaa" indicator-active-color="#ffffff"
+                    class="slide_box">
+                    <block wx:for="{{list.data.slidedata}}" wx:key="id">
+                        <swiper-item wx:if="{{item}}" data-template="{{item.template}}" data-title="{{item.title}}" data-url="{{item.url}}" data-pic="{{item.pic}}"
+                            data-local="content" catchtap="ListEvent" data-name="view">
+                            <template is="list_slide" data="{{item:item,imgloader:imgloader}}" />
+                        </swiper-item>
+                    </block>
+                </swiper>
+            </view>
+            <!-- 列表 -->
+            <view class="list_box" wx:if="{{list.data.listdata.length > 0}}">
+                <block wx:for="{{list.data.listdata}}" wx:key="id">
+                    <view wx:if="{{item.typeid!=3}}" class="list-item" data-template="{{item.template}}" data-title="{{item.title}}" data-url="{{item.url}}"
+                        data-pic="{{item.pic}}" data-local="content" hover-class="active" catchtap="ListEvent" data-name="view">
+                        <!-- 新闻 -->
+                        <block wx:if="{{item.typeid==0}}">
+                            <block wx:if="{{item.lpic.length==0}}">
+                                <template is="list_img_small" data="{{item:item,imgloader:imgloader,typename:'新闻'}}" />
+                            </block>
+                            <block wx:else>
+                                <template is="list_img_li" data="{{item:item,imgloader:imgloader,typename:'新闻'}}" />
+                            </block>
+                        </block>
+                        <!-- 推广 小程序不支持外链  所以屏蔽了-->
+                        <!-- <block wx:if="{{item.typeid==3}}">
+                            <template is="list_img_full" data="{{item:item,imgloader:imgloader,typename:'推广'}}" />
+                        </block> -->
+                        <!-- 图集 -->
+                        <block wx:if="{{item.typeid==4}}">
+                            <template is="list_img_full" data="{{item:item,imgloader:imgloader,typename:'图集'}}" />
+                        </block>
+                        <!-- 视频 -->
+                        <block wx:if="{{item.typeid==5}}">
+                            <template is="list_img_video" data="{{item:item,imgloader:imgloader,typename:'视频'}}" />
+                        </block>
+                        <!-- 直播 -->
+                        <block wx:if="{{item.typeid==6}}">
+                            <template is="list_img_video" data="{{item:item,imgloader:imgloader,typename:'直播'}}" />
+                        </block>
+                        <!-- 专题 -->
+                        <block wx:if="{{item.typeid==7}}">
+                            <template is="list_img_full" data="{{item:item,imgloader:imgloader,typename:'专题'}}" />
+                        </block>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </block>
+    <block wx:if="{{list.catobj.list_template=='list_zw'}}">
+        <view class="list_zw list_main fixload">
+            <template is="diy" />
+            <view class="subcat">
+                <view class="subitem" data-title="书记活动报道集" data-catid="3" data-local="boss" catchtap="ListEvent" data-name="view">
+                    <view class="iconfont icon-shuji"></view>
+                    活动报道集
+                </view>
+                <view class="subitem" data-title="市长活动报道集" data-catid="4" data-local="boss" catchtap="ListEvent" data-name="view">
+                    <view class="iconfont icon-shizhang"></view>
+                    活动报道集
+                </view>
+            </view>
+            <!-- 列表 -->
+            <view class="list_box" wx:if="{{list.data.listdata.length > 0}}">
+                <block wx:for="{{list.data.listdata}}" wx:key="id">
+                    <view class="list-item" data-template="{{item.template}}" data-title="{{item.title}}" data-url="{{item.url}}" data-pic="{{item.pic}}"
+                        data-local="content" hover-class="active" catchtap="ListEvent" data-name="view">
+                        <template is="list_img_small" data="{{item:item,imgloader:imgloader}}" />
+                    </view>
+                </block>
+            </view>
+        </view>
+    </block>
+    <block wx:if="{{list.catobj.list_template=='list_live'}}">
+        <view class="list_live fixload">
+            <template is="diy" />
+            <!-- 列表 -->
+            <view class="list_box" wx:if="{{list.data.listdata.length > 0}}">
+                <block wx:for="{{list.data.listdata}}" wx:key="id">
+                    <view class="list-item" data-template="{{item.template}}" data-title="{{item.title}}" data-url="{{item.url}}" data-pic="{{item.pic}}"
+                        data-local="live" hover-class="active" catchtap="ListEvent" data-name="view">
+                        <template is="list_live" data="{{item:item,imgloader:imgloader}}" />
+                    </view>
+                </block>
+            </view>
+        </view>
+    </block>
+    <block wx:if="{{list.catobj.list_template=='list_video'}}">
+        <view class="list_video fixload">
+            <template is="diy" />
+            <!-- 列表 -->
+            <view class="list_box" wx:if="{{list.data.listdata.length > 0}}">
+                <block wx:for="{{list.data.listdata}}" wx:key="id">
+                    <view class="list-item" data-template="{{item.template}}" data-title="{{item.title}}" data-url="{{item.url}}" data-pic="{{item.pic}}"
+                        data-local="content" hover-class="active" catchtap="ListEvent" data-name="view">
+                        <template is="list_video" data="{{item:item,imgloader:imgloader}}" />
+                    </view>
+                </block>
+            </view>
+        </view>
+    </block>
+    <block wx:if="{{list.catobj.list_template=='list_zj'}}">
+        <view class="list_zj"></view>
+    </block>
+    <block wx:if="{{list.catobj.list_template=='list_fabu'}}">
+        <view class="list_fabu fixload">
+            <template is="diy" />
+            <!-- 列表 -->
+            <view class="list_box" wx:if="{{list.data.listdata.length > 0}}">
+                <block wx:for="{{list.data.listdata}}" wx:key="id">
+                    <view class="list-item" data-template="{{item.template}}" data-title="{{item.title}}" data-url="{{item.url}}" data-pic="{{item.pic}}"
+                        data-local="content" hover-class="active" catchtap="ListEvent" data-name="view">
+                        <block wx:if="{{item.lpic.length==0}}">
+                            <template is="list_fabu" data="{{item:item,imgloader:imgloader}}" />
+                        </block>
+                        <block wx:else>
+                            <template is="list_fabu_li" data="{{item:item,imgloader:imgloader}}" />
+                        </block>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </block>
+    <!-- 上拉加载 -->
+    <template is="loading" data="{{loading:loading}}" />
+    <template is="imgloader" data="{{imgloader:imgloader}}" />
+</template>

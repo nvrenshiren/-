@@ -1,0 +1,58 @@
+<import src="../list/list_from_txt.wxml" />
+<import src="../list/list_img_li.wxml" />
+<import src="../list/list_img_full.wxml" />
+<import src="../list/list_img_video.wxml" />
+<template name="show_special">
+  <block wx:if="{{data.pic}}">
+    <image data-src="{{data.pic}}" src="{{imgloader['thumb_0']['loaded']?imgloader['thumb_0']['src']:'/images/loading.gif'}}"
+      class="banner" bindload="ConEvent" data-name="downimg" id="thumb_0" data-mode="2"/>
+  </block>
+  <view class="description">{{data.description}}</view>
+  <view class="specat">
+    <block wx:for="{{data.specat}}" wx:key="*this">
+    <view class="catitem">
+      <view class="name">{{item.name}}</view>
+    </view>
+  </block>
+  </view>
+  <view class="spelist" wx:for="{{data.specat}}" wx:key="*this">
+    <view class="list-tip">{{index+1}}/{{data.specat.length}}
+      <view class="name">{{item.name}}</view>
+    </view>
+    <view class="list_main">
+      <!-- 列表 -->
+      <view class="list_box" wx:if="{{item.lists.length > 0}}">
+        <block wx:for="{{item.lists}}" wx:key="id">
+          <view wx:if="{{item.typeid!=3}}" class="list-item" data-template="{{item.template}}" data-title="{{item.title}}" data-url="{{item.url}}"
+            data-local="content" hover-class="active" catchtap="ListEvent" data-name="view">
+            <!-- 新闻 -->
+            <block wx:if="{{item.typeid==0}}">
+              <block wx:if="{{item.lpic.length==0}}">
+                <template is="list_from_txt" data="{{item:item,imgloader:imgloader,typename:'新闻'}}" />
+              </block>
+              <block wx:else>
+                <template is="list_img_li" data="{{item:item,imgloader:imgloader,typename:'新闻'}}" />
+              </block>
+            </block>
+            <!-- 图集 -->
+            <block wx:if="{{item.typeid==4}}">
+              <template is="list_img_full" data="{{item:item,imgloader:imgloader,typename:'图集'}}" />
+            </block>
+            <!-- 视频 -->
+            <block wx:if="{{item.typeid==5}}">
+              <template is="list_img_video" data="{{item:item,imgloader:imgloader,typename:'视频'}}" />
+            </block>
+            <!-- 直播 -->
+            <block wx:if="{{item.typeid==6}}">
+              <template is="list_img_video" data="{{item:item,imgloader:imgloader,typename:'直播'}}" />
+            </block>
+            <!-- 专题 -->
+            <block wx:if="{{item.typeid==7}}">
+              <template is="list_img_full" data="{{item:item,imgloader:imgloader,typename:'专题'}}" />
+            </block>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,12 @@
+<template name="combox">
+  <view class="combox shadow" hidden="{{!combox.show}}" catchtap="ComBoxEvent" data-name="combox">
+    <view class="comwarp" catchtap="ComBoxEvent">
+      <view class="btnbox">
+        <view class="close btn" catchtap="ComBoxEvent" data-name="combox">取消</view>
+        <view>写跟帖</view>
+        <view class="post btn" catchtap="ComBoxEvent" data-name="postcom">提交</view>
+      </view>
+      <textarea class="cominput" cursor-spacing="130" placeholder="请输入跟帖内容" bindinput="ComBoxEvent" data-name="getinput" focus="{{!!combox.show}}" fixed="1" show-confirm-bar="{{!!0}}" value="{{combox.input}}" />
+    </view>
+  </view>
+</template>

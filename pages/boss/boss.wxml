@@ -1,0 +1,32 @@
+<import src="../../utils/modules/list/list_from_txt.wxml" />
+<import src="../../utils/plus/loading/loading.wxml" />
+<import src="../../utils/plus/loading/diy.wxml" />
+<import src="../../utils/plus/imgloader/imgloader.wxml" />
+<view class="content-warp">
+
+
+    <view class="list_main fixload">
+        <template is="diy" />
+        <view class="boss" wx:if="{{boss}}">
+            <image data-from="boss" data-src="{{boss.thumb}}" src="{{imgloader['face']['loaded']?imgloader['face']['src']:'/images/loading.gif'}}"
+                class="face fl {{imgloader['face']['loaded']?'anima':''}}" bindload="ListEvent" data-name="downimg" id="face"
+                lazy-load/>
+            <view class="name">{{boss.name}}</view>
+            <view class="info">{{boss.description}}</view>
+        </view>
+        <!-- 列表 -->
+        <view class="list_box" wx:if="{{list.data.listdata.length > 0}}">
+            <block wx:for="{{list.data.listdata}}" wx:key="id">
+                <view class="list-item" data-template="{{item.template}}" data-title="{{item.title}}" data-pic="{{item.pic}}" data-url="{{item.url}}"
+                    data-local="content" hover-class="active" catchtap="ListEvent" data-name="view">
+                    <!-- 新闻 -->
+                    <template is="list_from_txt" data="{{item:item,imgloader:imgloader}}" />
+                </view>
+            </block>
+        </view>
+    </view>
+
+    <!-- 上拉加载 -->
+    <template is="loading" data="{{loading:loading}}" />
+    <template is="imgloader" data="{{imgloader:imgloader}}" />
+</view>

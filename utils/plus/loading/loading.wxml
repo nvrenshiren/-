@@ -1,0 +1,7 @@
+<template name="loading">
+    <view class="loading">
+        <view class="loading-btn">
+            <button loading="{{loading.status}}" disabled="{{!!1}}" plain="{{!!1}}">{{loading.text}}</button>
+        </view>
+    </view>
+</template>

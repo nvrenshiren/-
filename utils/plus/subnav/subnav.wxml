@@ -1,0 +1,20 @@
+<template name="subnav">
+  <!-- <view bindtap="SubnavEvent" data-name="shownav" class="{{!!subnav.subshow ? 'subtip fa fa-list hidden': 'subtip fa fa-list show'}}">
+    </view>
+    <view class="{{!!subnav.subshow ? 'sub-box showed': 'sub-box'}}" catchlongpress>
+        <block wx:for="{{category}}" wx:key="catid">
+            <view data-catid="{{item.catid}}" data-index="{{index}}" class="{{index==subnav.index ? 'active' :''}}" catchtap="SubnavEvent"
+                data-name="changeList">{{item.catname}}</view>
+        </block>
+    </view> -->
+
+  <scroll-view scroll-x="1" scroll-with-animation="true" class="subwarp" scroll-into-view="cat{{subnav.index-3}}">
+    <view class="subbox">
+      <block wx:for="{{category}}" wx:key="catid">
+        <view id="cat{{index}}" data-catid="{{item.catid}}" data-index="{{index}}" class="{{index==subnav.index ? 'active' :''}}"
+          catchtap="SubnavEvent" data-name="changeList" hover-class="full">{{item.catname}}</view>
+      </block>
+    </view>
+  </scroll-view>
+
+</template>

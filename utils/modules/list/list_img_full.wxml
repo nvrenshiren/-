@@ -1,0 +1,9 @@
+<template name="list_img_full">
+  <view class="list-warp img_full">
+    <image data-from="listdata" data-src="{{item.pic}}" src="{{imgloader['thumb_'+item.id+'_0']['loaded']?imgloader['thumb_'+item.id+'_0']['src']:'/images/loading.gif'}}"
+      class="item-image {{imgloader['thumb_'+item.id+'_0']['loaded']?'anima':''}}" bindload="ListEvent" data-name="downimg" id="thumb_{{item.id}}_0" lazy-load/>
+    <view class="item-title">{{item.title}}
+      <view class="item-type">{{typename}}</view>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,24 @@
+<import src="../../plus/wxParse/wxParse.wxml" />
+<template name="show_pics">
+  <view class="list_slide" wx:if="{{data.pictureurls.length > 0}}">
+    <swiper indicator-dots="{{!!1}}" circular="{{!!0}}" current="0" class="slide_box" bindchange="ConEvent" data-name="changeindex">
+      <block wx:for="{{data.pictureurls}}" wx:key="*this">
+        <swiper-item wx:if="{{item}}" catchtap="ConEvent" data-name="viewpic" data-src="{{item}}">
+          <view class="slide-item">
+            <image data-index="{{index}}" data-from="data" data-src="{{item}}" src="{{imgloader['thumb_'+data.id+'_'+index]['loaded']?imgloader['thumb_'+data.id+'_'+index]['src']:'/images/loading.gif'}}"
+              bindload="ListEvent" data-name="downimg" id="thumb_{{data.id}}_{{index}}" data-mode="2" class="slide-image {{imgloader['thumb_'+data.id+'_'+index]['loaded']?'anima':''}}" />
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="content-padded">
+    <view class="title">
+      {{data.title}}
+      <view class="other fr">{{data.slideindex?data.slideindex:1}}/{{data.pictureurls.length}}</view>
+    </view>
+    <view class="content-main">
+      <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+    </view>
+  </view>
+</template>

@@ -1,0 +1,25 @@
+<import src="../list/list_live_con.wxml" />
+<import src="../../plus/loading/loading.wxml" />
+<template name="show_live">
+  <view class="content-full">
+    <view class="videobox">
+      <video id="livevideo" src="{{data.video}}" controls="1" poster="{{data.thumb}}" data-name="play" bindplay="LiveEvent" danmu-btn="1"
+        enable-danmu="1" autoplay="1"></video>
+    </view>
+
+    <view class="list_live">
+      <scroll-view class="listscroll" scroll-y="1" lower-threshold="10" bindscrolltolower="ListEvent" data-name="scrollbot">
+      <!-- 列表 -->
+      <view class="list_box" wx:if="{{lists.length > 0}}">
+        <block wx:for="{{lists}}" wx:key="*this" wx:for-index="idx">
+          <view class="list-item">
+            <template is="list_live_con" data="{{item:item,imgloader:imgloader}}" />
+          </view>
+        </block>
+        <template is="loading" data="{{loading:loading}}" />
+      </view>
+    </scroll-view>
+    </view>
+
+  </view>
+</template>

@@ -1,0 +1,27 @@
+<import src="../../plus/wxParse/wxParse.wxml" />
+<template name="show_fabu">
+  <view class="content-padded">
+    <view class="title">
+      <view class="tag">{{data.catname}}</view>{{data.title}}
+    </view>
+    <view class="other">
+      <view class="item-view fl">
+        <image class="face" src="{{data.face}}"></image> {{data.nickname}}
+      </view>
+      <view class="fa fa-calendar-plus-o">
+        {{data.inputtime}}
+      </view>
+    </view>
+    <view class="content-main" style="font-size: {{config.fontsize}}rpx;">
+      <view class="list_pics" wx:if="{{data.pictureurls.length > 0}}">
+        <block wx:for="{{data.pictureurls}}" wx:key="*this">
+          <view class="list-item" catchtap="ConEvent" data-name="viewpic" data-src="{{item}}">
+            <image data-index="{{index}}" data-from="data" data-src="{{item}}" src="{{imgloader['thumb_'+data.id+'_'+index]['loaded']?imgloader['thumb_'+data.id+'_'+index]['src']:'/images/loading.gif'}}"
+              bindload="ListEvent" data-name="downimg" id="thumb_{{data.id}}_{{index}}" data-mode="2" class="slide-image {{imgloader['thumb_'+data.id+'_'+index]['loaded']?'anima':''}}" />
+          </view>
+        </block>
+      </view>
+      <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+    </view>
+  </view>
+</template>

@@ -1,0 +1,16 @@
+<template name="list_img_video">
+  <view class="list-warp img_video">
+    <view class="play_box">
+    <image data-from="listdata" data-src="{{item.pic}}" src="{{imgloader['thumb_'+item.id+'_0']['loaded']?imgloader['thumb_'+item.id+'_0']['src']:'/images/loading.gif'}}"
+      class="item-image {{imgloader['thumb_'+item.id+'_0']['loaded']?'anima':''}}" bindload="ListEvent" data-name="downimg" id="thumb_{{item.id}}_0" lazy-load/>
+    <view class="item-play fa fa-play txt-cn"></view>
+  </view>
+    <view class="item-title">{{item.title}}
+      <view class="item-type">{{typename}}</view>
+      <view class="item-view fr">
+        <view class="fa fa-eye"> {{item.view}}</view>
+      </view>
+    </view>
+
+  </view>
+</template>

@@ -1,0 +1,16 @@
+<template name="list_fabu">
+  <view class="list-warp img_small">
+    <view class="item-title">{{item.title}}</view>
+    <image data-from="listdata" data-src="{{item.pic}}" src="{{imgloader['thumb_'+item.id+'_0']['loaded']?imgloader['thumb_'+item.id+'_0']['src']:'/images/loading.gif'}}"
+      class="item-image fl {{imgloader['thumb_'+item.id+'_0']['loaded']?'anima':''}}" bindload="ListEvent" data-name="downimg" id="thumb_{{item.id}}_0" lazy-load/>
+    <view class="item-view description">{{item.description}}</view>
+    <view class="other">
+      <view class="item-view fl">
+          <image class="face" src="{{item.face}}"></image> {{item.nickname}}
+      </view>
+      <view class="item-view fr">
+        <view class="fa fa-clock-o"> {{item.inputtime}}</view>
+      </view>
+    </view>
+  </view>
+</template>

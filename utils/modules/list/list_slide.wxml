@@ -1,0 +1,7 @@
+<template name="list_slide">
+    <view class="slide-item">
+        <view class="slide-txt">{{item.title}}</view>
+        <image data-index="0" data-from="slidedata" data-src="{{item.pic}}" src="{{imgloader['thumb_'+item.id+'_0']['loaded']?imgloader['thumb_'+item.id+'_0']['src']:'/images/loading.gif'}}"
+            bindload="ListEvent" data-name="downimg" id="thumb_{{item.id}}_0" data-mode="2" class="slide-image {{imgloader['thumb_'+item.id+'_0']['loaded']?'anima':''}}" />
+    </view>
+</template>

@@ -1,0 +1,21 @@
+<template name="config">
+  <view class="config shadow" hidden="{{!config.show}}" catchtap="ConfigEvent" data-name="config">
+    <view class="warp" catchtap="ComBoxEvent">
+      <view class="list_box">
+        <view class="list-item">
+          <view class="list-warp">
+            <view>字体大小</view>
+            <slider class="font" bindchange="ConfigEvent" data-name="fontsize" step="2" min="24" max="50" value="{{config.fontsize}}" show-value="1" activeColor="#aaa" backgroundColor="#eee"/>
+          </view>
+        </view>
+        <view class="list-item">
+          <view class="list-warp">
+            <view>夜间模式</view>
+            <switch bindchange="ConfigEvent" data-name="night" color="#d20019" checked="{{!!config.night}}"/>
+          </view>
+        </view>
+      </view>
+      <view class="close" catchtap="ConfigEvent" data-name="config">关  闭</view>
+    </view>
+  </view>
+</template>

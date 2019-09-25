@@ -1,0 +1,1 @@
+<web-view src="{{params.url}}"></web-view>

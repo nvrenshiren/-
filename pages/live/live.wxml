@@ -1,0 +1,4 @@
+<import src="../../utils/modules/live/live.wxml" />
+<view class="content-warp {{config.night?'night':''}}">
+  <template is="live" data="{{data:data,template:params.template,content:content,imgloader:imgloader,navbar:navbar,combox:combox,config:config,lists:lists,loading:loading,tmbox:tmbox}}" />
+</view>

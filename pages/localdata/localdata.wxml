@@ -1,0 +1,21 @@
+<import src="../../utils/modules/list/list_data.wxml" />
+<import src="../../utils/plus/loading/loading.wxml" />
+<import src="../../utils/plus/imgloader/imgloader.wxml" />
+<view class="content-warp">
+  <view class="list_main">
+    <!-- 列表 -->
+    <view class="list_box" wx:if="{{lists.length > 0}}">
+      <block wx:for="{{lists}}" wx:key="*this">
+        <view class="list-item" data-template="{{item.template}}" data-title="{{item.title}}" data-pic="{{item.pic}}" data-url="{{item.url}}"
+          data-local="{{item.local}}" hover-class="active" catchtap="ListEvent" data-name="view">
+          <!-- 新闻 -->
+          <template is="list_data" data="{{item:item,imgloader:imgloader,index:index}}" />
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 上拉加载 -->
+  <template is="loading" data="{{loading:loading}}" />
+  <template is="imgloader" data="{{imgloader:imgloader}}" />
+</view>

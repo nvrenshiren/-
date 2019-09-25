@@ -1,0 +1,19 @@
+<template name="list_live_con">
+  <view class="live_warp">
+    <view class="head">
+      <view class="user">
+        <image src="{{item.face}}"></image>{{item.uname}}
+      </view>
+      <view class="time">{{item.inputtime}}</view>
+    </view>
+    <view class="conbox">
+      <view class="txt">{{item.content}}</view>
+      <view class="piclist" wx:if="{{item.lpic.length>0}}">
+        <block wx:for="{{item.lpic}}" wx:for-item="pic" wx:for-index="idx">
+          <image data-from="lpic" data-src="{{pic}}" src="{{imgloader['thumb_'+item.id+'_'+idx]['loaded']?imgloader['thumb_'+item.id+'_'+idx]['src']:'/images/loading.gif'}}"
+          class="item-image {{imgloader['thumb_'+item.id+'_'+idx]['loaded']?'anima':''}}" bindload="ListEvent" data-name="downimg" id="thumb_{{item.id}}_{{idx}}" lazy-load catchtap="LiveEvent"/>
+        </block>
+      </view>
+    </view>
+  </view>
+</template>

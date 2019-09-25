@@ -1,0 +1,21 @@
+<template name="list_live">
+    <view class="list-warp">
+        <image data-from="listdata" data-src="{{item.pic}}" src="{{imgloader['thumb_'+item.id+'_0']['loaded']?imgloader['thumb_'+item.id+'_0']['src']:'/images/loading.gif'}}"
+          class="item-image {{imgloader['thumb_'+item.id+'_0']['loaded']?'anima':''}}" bindload="ListEvent" data-name="downimg" data-mode="2" id="thumb_{{item.id}}_0" lazy-load/>
+        <view class="item-title">{{item.title}}</view>
+        <view class="item-other">
+          <view class="fl">
+            <view class="item-view">{{item.starttime}}</view>
+          </view>
+          <view class="fr">
+            <view wx:if="{{item.type=='1'}}" class="item-type end">
+              结束直播
+            </view>
+            <view wx:else class="item-type start">
+              正在直播
+            </view>
+            <view class="item-view">参与人数:{{item.views}}</view>
+          </view>
+        </view>
+      </view>
+</template>

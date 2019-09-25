@@ -1,0 +1,14 @@
+<import src="./show_live.wxml" />
+<import src="../../plus/imgloader/imgloader.wxml" />
+<import src="../../plus/navbar/navbar.wxml" />
+<import src="../../plus/combox/combox.wxml" />
+<import src="../../plus/tmbox/tmbox.wxml" />
+<template name="live">
+  <view class="{{template}} {{!!data?'show':'hidden'}}">
+    <template is="show_live" data="{{data:data,lists:lists,imgloader:imgloader,loading:loading}}"></template>
+    <template is="combox" data="{{combox:combox}}"></template>
+    <template is="tmbox" data="{{tmbox:tmbox}}"></template>
+    <template is="navbar" data="{{navbar:navbar,combox:combox}}"></template>
+  </view>
+  <template is="imgloader" data="{{imgloader:imgloader}}" />
+</template>
